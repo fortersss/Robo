@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+  %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %title Robo
+  %meta{content: "width=device-width,initial-scale=1", name: "viewport"}/
+  = csrf_meta_tags
+  = csp_meta_tag
+  = stylesheet_link_tag "application", "data-turbo-track": "reload"
+  = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
+  %body
+    %nav.navbar.navbar-inverse.navbar-static-top
+      .container
+        .navbar-header
+          %a.navbar-brand{href: root_path} Robo
+          %ul.nav.navbar-nav
+            %li
+              %a{href:"#"} Start
+            %li
+              %a{href: "#"} Polityka prywatności
+            %li
+              %a{href:"#"} Regulamin
+            %li
+              %a{href:"#"} Dostawa i płatności
+            %li
+              %a{href:"#"} O sklepie
+= yield
