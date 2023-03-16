@@ -24,4 +24,13 @@
               %a{href:"#"} Dostawa i płatności
             %li
               %a{href:"#"} O sklepie
-= yield
+    .container-fluid
+      .row
+        .col-md-2
+          %h3 Kategorie
+          %ul.nav.nav-sidebar
+            - Category.all.each do |category|
+              %li
+              = link_to category.name, category_path(category)
+        .col-md-10
+          = yield

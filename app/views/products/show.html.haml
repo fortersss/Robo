@@ -1,2 +1,14 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+.container-fluid
+  .col-md-5
+    %h1
+    = Faker::Hacker.noun
+    %p.lead
+    = Faker::Hacker.say_something_smart
+    = simple_format(Faker::Lorem.paragraphs(number: 3).join("\n\n"))
+    %p.lead
+    = number_to_currency(Faker::Number.decimal(l_digits: 2, r_digits: 2))
+    %p
+    = link_to "#", class: "btn btn-primary" do
+      %span.fa.fa-shopping-card Dodaj do koszyka
+  .col-md-7
+    = image_tag Faker::Placeholdit.image(size: "640x480", format: 'jpg', background_color: 'cccccc'), class: "img-responsive"
