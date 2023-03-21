@@ -1,2 +1,4 @@
-%h1 Nazwa kategorii
-= render partial: "products/products", locals: { products: (1..9) }
+%h1
+= @category.name
+= render partial: "products/products", locals: { products: @products }
+= paginate @products

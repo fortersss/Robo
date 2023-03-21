@@ -1,17 +1,17 @@
 - products.each_slice(3) do |slice|
-    .row
+    %p.row
         - slice.each do |product|
             .col-md-4
-                .thumbnail
+                .img-thumbnail
                     = link_to product_path(1) do
-                        = image_tag Faker::Placeholdit.image(size: '640x480', format: 'jpg', background_color: 'cccccc')
-                    .capition
-                        %h3
-                        = link_to Faker::Hacker.noun.titleize, product_path(1)
+                        = image_tag product.photo.url(:thumb)
+                    .card-body
+                        %h3.card-title
+                            = link_to product.name, product
+                        %p.card-text
+                            = simple_format(truncate(product.description, length: 50))
+                        %p.lead.card-text
+                            = number_to_currency product.price
                         %p
-                        = simple_format(truncate(Faker::Hacker.say_something_smart, length: 90))
-                        %p.lead
-                        = number_to_currency Faker::Number.decimal(l_digits: 2, r_digits: 2)
-                        %p
-                        = link_to "#", class: 'btn btn-primary' do
-                            %span.fa.fa-shopping-cart Dodaj do koszyka
+                            = link_to "#", class: 'btn btn-primary' do
+                                %span.fa.fa-shopping-cart Dodaj do koszyka
