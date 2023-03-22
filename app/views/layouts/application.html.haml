@@ -30,7 +30,7 @@
           %h3 Kategorie
           %ul.nav.nav-sidebar
             - Category.all.each do |category|
-              %li
-              = link_to category.name, category_path(category)
+              %li{ :class => ("active" if @category == category) }
+                = link_to category.name, category_path(category)
         .col-md-10
           = yield

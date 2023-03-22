@@ -3,7 +3,7 @@
         - slice.each do |product|
             .col-md-4
                 .img-thumbnail
-                    = link_to product_path(1) do
+                    = link_to product do
                         = image_tag product.photo.url(:thumb)
                     .card-body
                         %h3.card-title
