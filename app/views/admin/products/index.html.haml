@@ -1,0 +1,23 @@
+%h1 Produkty
+%button.btn.btn-success{type: 'button'}
+  = link_to new_admin_product_path do
+    %span.fa.fa-plus Dodaj nowy produkt
+%table.table.table-stripped
+  %thead
+    %tr
+      %th Nazwa
+      %th Cena
+      %th Kategoria
+  %tbody
+    - @products.each do |product|
+      %tr
+        %td
+          = product.name
+        %td
+          = number_to_currency product.price
+        %td
+          = product.category.name
+        %td
+          .btn.btn-default.btn-xs
+            = link_to 'Edycja', edit_admin_product_path(product)
+= paginate @products

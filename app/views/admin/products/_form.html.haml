@@ -1,0 +1,8 @@
+= simple_form_for [:admin, @product] do |f|
+  = f.input :name, label: 'Nazwa:'
+  = f.input :description, label: 'Opis:'
+  = f.input :long_description, label: 'Szczegóły:'
+  = f.input :price, label: 'Cena:'
+  = f.association :category, label: 'Kategoria:'
+  = f.input :photo, label: "Zdjęcie produktu:"
+  = f.submit 'Utwórz produkt'

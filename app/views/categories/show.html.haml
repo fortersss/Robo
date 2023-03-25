@@ -1,4 +1,4 @@
 %h1
-= @category.name
+  = @category.name
 = render partial: "products/products", locals: { products: @products }
 = paginate @products

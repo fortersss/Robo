@@ -14,16 +14,16 @@
         .navbar-header
           %a.navbar-brand{href: root_path} Robo
           %ul.nav.navbar-nav
-            %li
-              %a{href:"#"} Start
-            %li
-              %a{href: "#"} Polityka prywatności
-            %li
-              %a{href:"#"} Regulamin
-            %li
-              %a{href:"#"} Dostawa i płatności
-            %li
-              %a{href:"#"} O sklepie
+            %li{ :class => ("active" if current_page?(controller: 'products', action: 'index')) }
+              = link_to 'Start', root_path
+            %li{ :class => ("active" if current_page?(controller: 'static', action: 'privacy')) }
+              = link_to 'Polityka prywatności', privacy_path
+            %li{ :class => ("active" if current_page?(controller: 'static', action: 'terms')) }
+              = link_to 'Regulamin', terms_path
+            %li{ :class => ("active" if current_page?(controller: 'static', action: 'shipping')) }
+              = link_to 'Dostawa', shipping_path
+            %li{ :class => ("active" if current_page?(controller: 'static', action: 'about')) }
+              = link_to 'O nas', about_path
     .container-fluid
       .row
         .col-md-2
