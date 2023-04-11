@@ -2,11 +2,18 @@
 %button.btn.btn-success{type: 'button'}
   = link_to new_admin_product_path do
     %span.fa.fa-plus Dodaj nowy produkt
+.search-form
+  = search_form_for [:admin, @q] do |f|
+    = f.text_field :name_or_description_or_long_description_cont, placeholder: 'Szukaj tekstu'
+    = f.text_field :price_gt, placeholder: 'Cena'
+    = f.submit 'Szukaj'
 %table.table.table-stripped
   %thead
     %tr
-      %th Nazwa
-      %th Cena
+      %th
+        = sort_link(@q, :name, 'Nazwa')
+      %th
+        = sort_link(@q, :price, 'Cena')
       %th Kategoria
   %tbody
     - @products.each do |product|
