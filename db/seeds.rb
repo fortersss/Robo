@@ -35,3 +35,7 @@ print 'Product '
   product.save!
   print '.'
 end
+
+shipping_type.create(name: 'Przesyłka pocztowa', cost: '10.0')
+shipping_type.create(name: 'Kurier', cost: '20.0')
+
